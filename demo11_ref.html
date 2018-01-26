@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    
+  </title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+    let MyList= React.createClass({
+        render(){
+          return <div>
+            <ul ref="PList">
+              <MyItem ref="PItem"></MyItem>
+            </ul>
+            <input type="text" ref="myInput"/>
+            <button onClick={this.handleClick}>click me</button>
+          </div> 
+        },
+        handleClick(){
+          console.log('====================================')
+          console.log(this);
+          console.log(this.refs.PItem.pname);
+          console.log(this.refs.myInput.value);
+          console.log('====================================')
+        }
+    });
+    let MyItem = React.createClass({
+      pname:'这是一个产品',
+      render(){
+        return <li>test01</li>
+      }
+    })
+    ReactDOM.render(
+        <MyList></MyList>,
+        document.getElementById('example')
+    );
+  </script>
+</body>
+</html>

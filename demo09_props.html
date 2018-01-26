@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    
+  </title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+    let MyList = React.createClass({
+        render(){
+          return <ul>
+              {// React.Children.map(
+              //   this.props.children,
+              //   (value,key)=>value
+              // )
+              }
+              {
+              this.props.children[0]
+              }
+              {
+              this.props.children[1]
+              }
+            </ul>
+        }
+    });
+    ReactDOM.render(
+        <MyList>
+          <li>test01</li>
+          <li>test02</li>
+        </MyList> ,
+        document.getElementById('example')
+    );
+  </script>
+</body>
+</html>

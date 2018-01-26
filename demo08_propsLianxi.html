@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    
+  </title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+    let Box = React.createClass({
+      handleSubmit(e){
+        e.preventDefault();
+        alert('form is submit');
+      }
+      ,
+        render(){
+          return <form onSubmit={this.handleSubmit}>
+           <Input arg1="用户名" arg2="请输入您的用户名" arg3="text"></Input>
+           <Input arg1="密码" arg2="请输入您的密码" arg3="password"> </Input>
+           <Button arg="重置" arg1="reset"></Button>
+           <Button arg="登录" arg1="submit"></Button>
+          </form >
+        }
+    });
+    let Input = React.createClass({
+        render(){
+          return <div>
+                    <lable>{this.props.arg1}:</lable>
+                    <input type={this.props.arg3} placeholder={this.props.arg2}/>
+                  </div>
+        }
+    });
+   
+    let Button = React.createClass({
+      handleClick(){
+        alert('button is click');
+      }
+      ,
+      render(){
+        return <button onClick={this.handleClick} type={this.props.arg1}>{this.props.arg}</button>;
+      }
+    })
+    ReactDOM.render(
+        <Box></Box>,
+        document.getElementById('example')
+    );
+  </script>
+</body>
+</html>

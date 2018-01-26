@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    
+  </title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+  <script type="text/babel">
+    let Box = React.createClass({
+        render(){
+          return <div>
+            <UnameInput></UnameInput>
+            <UpwdInput></UpwdInput>
+            <RegisterButton></RegisterButton>
+            <LoginButton></LoginButton>
+          </div>
+        }
+    });
+    let UnameInput = React.createClass({
+        render(){
+          return <div>
+                    <lable>用户名:</lable>
+                    <input type="text"/>
+                  </div>
+        }
+    });
+    let UpwdInput = React.createClass({
+        render(){
+          return <div>
+                  <lable>密码:</lable>
+                  <input type="text"/>  
+                </div>
+        }
+    });
+    let LoginButton = React.createClass({
+      render(){
+        return <button>登录</button>
+      }
+    });
+    let RegisterButton = React.createClass({
+      render(){
+        return <button>注册</button>
+      }
+    })
+    ReactDOM.render(
+        <Box></Box>,
+        document.getElementById('example')
+    );
+  </script>
+</body>
+</html>
